@@ -24,6 +24,16 @@ type Config struct {
 	MySQL   MySQL   `yaml:"mysql"`
 	Redis   Redis   `yaml:"redis"`
 	Discord Discord `yaml:"discord"`
+	Sqlite  Sqlite  `yaml:"sqlite"`
+	Zerolog Zerolog `yaml:"zerolog"`
+}
+
+type Zerolog struct {
+	LogFileName string `yaml:"log_file_name"`
+}
+
+type Sqlite struct {
+	DSN string `yaml:"dsn"`
 }
 
 type Discord struct {

@@ -5,7 +5,7 @@ import (
 	"freefrom.space/videoTransform/pkg/discordX"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 
-	video "freefrom.space/videoTransform/hertz_gen/xy/video"
+	"freefrom.space/videoTransform/hertz_gen/xy/video"
 	"github.com/cloudwego/hertz/pkg/app"
 )
 

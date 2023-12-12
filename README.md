@@ -37,3 +37,7 @@
 sh build.sh
 sh output/bootstrap.sh
 ```
+
+```shell
+docker run --rm -v "$PWD":/Users/xy/work/ffmpegTransformer -w /Users/xy/work/ffmpegTransformer -e GOOS=linux -e GOARCH=arm64 -e CGO_ENABLED=1 golang:latest go build main.go 
+```

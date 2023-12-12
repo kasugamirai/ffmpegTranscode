@@ -18,6 +18,16 @@ redis:
   password: ""
   db: 0
 
+sqlite:
+  dsn: "file:data.db?cache=shared&mode=rwc&_fk=1"
+
 discord:
-  token: "your token"
-  channelID: "1175026585364082831"
+  token: ""
+  channelID: ""
+
+zerolog:
+  level: "notice"
+  file_name: "log/zerolog.log"
+  max_size: 10
+  max_age: 3
+  max_backups: 50x

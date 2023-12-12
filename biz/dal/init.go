@@ -1,11 +1,9 @@
 package dal
 
-import (
-	"freefrom.space/videoTransform/biz/dal/mysql"
-	"freefrom.space/videoTransform/biz/dal/redis"
-)
+import "freefrom.space/videoTransform/biz/dal/sqlite"
 
 func Init() {
-	redis.Init()
-	mysql.Init()
+	//redis.Init()
+	//mysql.Init()
+	sqlite.Init()
 }

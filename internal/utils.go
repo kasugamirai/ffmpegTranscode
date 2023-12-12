@@ -17,10 +17,10 @@ func ConfigZeroLog() {
 	zerolog.TimeFieldFormat = time.RFC3339Nano
 
 	// check if the file exists
-	_, err := os.Stat(conf.GetConf().ZeroLog.LogFileName)
+	_, err := os.Stat(conf.GetConf().Zerolog.LogFileName)
 	if os.IsNotExist(err) {
 		// if not, create the file
-		file, err := os.Create(conf.GetConf().ZeroLog.LogFileName)
+		file, err := os.Create(conf.GetConf().Zerolog.LogFileName)
 		if err != nil {
 			panic(err)
 		}

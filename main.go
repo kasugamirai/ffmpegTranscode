@@ -4,6 +4,7 @@ package main
 
 import (
 	"context"
+	"freefrom.space/videoTransform/biz/dal"
 	"freefrom.space/videoTransform/biz/router"
 	"freefrom.space/videoTransform/conf"
 	"github.com/cloudwego/hertz/pkg/app"
@@ -15,14 +16,14 @@ import (
 	"github.com/hertz-contrib/cors"
 	"github.com/hertz-contrib/gzip"
 	"github.com/hertz-contrib/logger/accesslog"
-	hertzlogrus "github.com/hertz-contrib/logger/logrus"
+	hertzZerolog "github.com/hertz-contrib/logger/zerolog"
 	"github.com/hertz-contrib/pprof"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
 func main() {
 	// init dal
-	// dal.Init()
+	dal.Init()
 
 	address := conf.GetConf().Hertz.Address
 	h := server.New(server.WithHostPorts(address))
@@ -41,8 +42,7 @@ func main() {
 
 func registerMiddleware(h *server.Hertz) {
 	// log
-	logger := hertzlogrus.NewLogger()
-	hlog.SetLogger(logger)
+	hlog.SetLogger(hertzZerolog.New())
 	hlog.SetLevel(conf.LogLevel())
 	hlog.SetOutput(&lumberjack.Logger{
 		Filename:   conf.GetConf().Hertz.LogFileName,
